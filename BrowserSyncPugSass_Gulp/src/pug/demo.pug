@@ -1,0 +1,72 @@
+//- index.pug
+//- mixin code for comment section
+mixin mixinComment(commentData)
+    if(commentData.postedByAdmin) 
+        .comment 
+            //- insert comment data into div class
+            .date= commentData.date 
+            .ttl= commentData.ttl 
+            .txt= commentData.txt
+            em(style={"font-weight" : "bold"}) Posted by Admin
+doctype html
+html(lang="en")
+    head
+        title Pug project run on Gulp
+        link(rel="stylesheet" href="css/demo_style.css?cb=1647999112799")
+        style. 
+            p {
+                color: #333333;
+                font-size: 26px;
+            }
+    body
+        //- pug id and classes
+        h1#pug-ttl BroswerSync and Pug Sass run on Gulp
+        p.pug-long-para. 
+            Pug - Jade First Line 
+            and Second Line
+        p.pug-short-para Pug Paragraph
+        ul 
+            li pug list #1
+            li pug list #2
+            li pug list #3
+        .div-para Pug div CLASS paragraph
+        #div-para Pug div ID paragraph
+
+        br
+        //- pug attributes
+        input(type="checkbox" name="inputCheck" checked)
+        label Checkbox Item
+        - const classes = ["class1", "class2", "class3"] //- use [] here
+        div.main-class(class=classes)
+        - const styles = {"color" : "#333333", "text-transform" : "uppercase"} //- use {} here
+        p.para-style(style=styles).
+            Pug Paragraph with attribute css styles
+        - const myAttributes = {"src" : "img/img_project.png", "alt" : "Pug Photo"}
+        img&attributes(myAttributes)
+        
+        br
+        label Input 01
+        input(type="text" disabled class="input-class" data-js=`${ 3 > 2 ? "OK" : "NOT OK" }`) 
+        br
+        label Input 02
+        input(type="text" disabled=true).input-class
+        br
+        label Input 03
+        input(type="text" disabled=false)
+
+        //- include, extend and block
+        h2.nav-sec Mixin, Include, Extend and Block
+        include includes/nav
+
+        //- comment section with simple div class 
+        .comment 
+            .date 3/21/2020
+            .ttl Pug Title
+            .txt Normal Text
+
+        //- mixin reusable code
+        - const data01 = {postedByAdmin : true, date : "3/21/2020", ttl : "Pug Mixin", txt : "Mixin - reusable blocks of code"};
+        +mixinComment(data01) 
+
+        - const data02 = {postedByAdmin : false, date : "3/21/2020", ttl : "Pug Mixin", txt : "Mixin - reusable blocks of code"};
+        +mixinComment(data02) 

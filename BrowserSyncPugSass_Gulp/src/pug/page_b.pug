@@ -1,0 +1,20 @@
+//- content_b.pug
+
+extends layout.pug 
+
+block css 
+    style. 
+        .cnt-b {
+          color: #229bff;
+        }
+
+block scripts 
+    script(src='js/page_b/jquery.js')
+    script(src='js/content_b/jquery.js')
+
+block variables 
+    - var contentTitle= "Page B Title"
+    
+block content 
+    p.cnt-b. 
+        Pug Extend and Block Content B

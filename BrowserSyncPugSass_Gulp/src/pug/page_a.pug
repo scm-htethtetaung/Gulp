@@ -1,0 +1,24 @@
+//-content_a.pug
+
+extends layout.pug
+
+block css
+    style.
+        .cnt-a {
+          color: #d6814f;
+        }
+
+block scripts
+    script(src='js/page_a/jquery.js')
+    script(src='js/content_a/jquery.js')
+
+block variables 
+    - var contentTitle= "Page A Title"
+    
+block content 
+    p.cnt-a. 
+        Pug Extend and Block Content A
+    h3= "Pets"
+    - var pets = ['cat', 'dog']
+    each petName in pets
+        em= petName+" "

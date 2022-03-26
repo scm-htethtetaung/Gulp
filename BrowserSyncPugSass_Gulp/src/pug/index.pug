@@ -1,0 +1,88 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0")
+    title Pug,Sass run on Gulp and BrowserSync
+    link(rel="stylesheet" href="css/style.css")
+body    
+    header
+        nav#main-nav  
+            .wrapper
+                ul.clearfix
+                    li
+                        a(href="demo.html") BrowserSync - Pug Sass run on Gulp 
+                    li  
+                        a(href="demo.html") Demo Page
+                    li  
+                        a(href="demo.html") Demo Page
+                    li  
+                        a(href="demo.html") Demo Page
+        .lead-banner
+            - const leadImgAttr = {"src" : "img/img_banner_1.jpg"}  
+            img&attributes(leadImgAttr)
+            .banner-content
+                .wrapper
+                    span.title Check Our Videos
+                    span.subtitle Learning in 6 Weeks
+    section#services
+        .wrapper
+            h1 Projects
+            ul.clearfix
+                li
+                    img(src="img/img_icon_1.png")
+                    a(href="#")
+                        | Recording
+                        br
+                        | services
+                li
+                    img(src="img/img_icon_2.png")
+                    a(href="#")
+                        | Get a printed 
+                        br
+                        | Certificate
+                li
+                    img(src="img/img_icon_3.png")
+                    a(href="#")
+                        | Lessons via
+                        br
+                        | Skype
+    .lessons-banner
+        - const lessonImgAttr= {"src" : "img/img_banner_2.png"}
+        img&attributes(lessonImgAttr)
+        .banner-content
+            .wrapper
+                span.title Our Lessons
+                span.sub-title Are Amazing 
+                ul
+                    li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    section#projects
+        .wrapper
+            h1 Our Projects
+            ul
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")
+                li
+                    img(src="img/img_project.png")       

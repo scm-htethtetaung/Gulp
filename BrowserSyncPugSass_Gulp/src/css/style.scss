@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------------------------------------------------
+ *  1.基本情報
+ * --------------------------------------------------------------------------------------------------*/
+
+// Sass Study+Demo Project
+
+// @use 'src/borders';
+@use "sass:math";
+@use 'forward';
+@import "reset";
+@import "variables";
+@import "mixins";
+
+#main-nav {
+    background: #372b3b;
+
+    // Nesting
+
+    ul {
+        width: 100%;
+
+        &:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+    }
+
+    li {
+        // Math Operators
+        
+        width: math.div(100%, 4);
+        // width: 14%;
+        float: left;
+        font-size: 18px;
+
+        // Content Keyword
+
+        @include mQ(750px) {
+            width: 100%;
+        }
+        border-right: 1px solid #4e4950;
+        border-width: 3px;
+    }
+
+    // Pseudo Classes 
+    a {
+        color: $off-white;
+        text-align: center;
+        padding: 16px;
+        display: block;
+
+        // &:hover {
+        //     background: #333333;
+        // }
+
+        &:hover {
+            background: lighten($color: $primary-color, $amount: 7);
+        }
+    }
+}
+
+// end main-nav
+
+section h1 {
+    font-size: $section-heading;
+    margin: 20px auto;
+    text-align: center;
+    // @include borders.border-bottom;
+    @include forward.border-bottom;
+}
+
+// Mixins @include
+
+.lead-banner {
+    @include banner;
+    text-align: right;
+
+    .banner-content {
+        right: 100px;
+    }
+}
+
+.lessons-banner {
+    @include banner;
+
+    .banner-content {
+        left: 100px;
+    }
+
+    ul {
+        padding: 0;
+
+        li {
+            @extend ul;
+            // Sass @function 
+
+            @function pow($base, $exponent) {
+                $result: 1;
+
+                @for $_ from 1 through $exponent {
+                    $result: $result * $base;
+                }
+
+                @return $result;
+            }
+
+            // margin-bottom: 64px;
+            margin-bottom: pow(4, 3) * 1px;
+        }
+    }
+
+    li {
+        text-transform: uppercase;
+        font-size: 20px;
+        max-width: 500px;
+    }
+}
+
+#services {
+    margin-bottom: 60px;
+
+    li {
+        float: left;
+        width: math.div(100%, 3);
+        // width: 33.33%;
+        text-align: center;
+    }
+
+    img {
+        width: 60%;
+        margin: 20px 20%;
+    }
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: $link-heading;
+
+        // &:hover {
+        //     color: #204766;
+        // }
+
+        &:hover {
+            color: complement($color: #204766);
+        }
+    }
+}
+
+// Sass Creating mixin Grid 
+
+#projects {
+    ul {
+        padding: 0 30px;
+    }
+
+    li {
+        // float: left;
+        // width: 23%;
+        // margin-right: 2%;
+        @include grid(4, 2%);
+
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+//- layout.pug 
+doctype html 
+html(lang="en")
+  head
+    - var title= "Extend and Block"
+    title Pug Layout - #{title}
+    link(rel="stylesheet" href="css/demo_style.css?cb=1647999112799")
+    block css
+    block scripts
+      script(src='script.js')
+      script(src='global.js')
+  body
+    include includes/nav 
+
+    block variables
+    h1 #{contentTitle}
+
+    block content   
+    
+    block footer
+      #footer 
+        p Footer paragraph goes here!

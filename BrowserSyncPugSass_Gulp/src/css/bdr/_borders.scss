@@ -1,0 +1,8 @@
+// bdr/_borders.scss
+
+$size: 4px;
+
+@mixin border-bottom {
+    border-bottom: $size solid #204766;
+    width: 15%;
+}

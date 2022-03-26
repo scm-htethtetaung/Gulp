@@ -1,0 +1,68 @@
+// Mixins
+
+@use "sass:math";
+
+@mixin banner {
+    width: 100%;
+    position: relative;
+
+    .banner-content {
+        position: absolute;
+        top: 120px;
+        color: #c1c8ce;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    span {
+        font-size: 32px;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        @include mQ(750px,1920px) {
+            font-size: $banner-heading;
+        }
+    }
+
+    span.sub-title {
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+}
+
+// Sass Creating mixin Grid
+
+@mixin grid($cols, $mgn) {
+    float: left;
+    margin-right: $mgn;
+    margin-bottom: $mgn;
+    width: math.div(100% - (($cols - 1) * $mgn), $cols);
+
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+}
+
+// Content Keyword and Arguments
+
+// @mixin mQ($arg) {
+//     @media screen and (max-width: $arg){
+//         @content;
+//       }
+// }
+
+@mixin mQ($arg...) {
+    @if (length($arg)==1) {
+        @media screen and (max-width: nth($arg, 1)) {
+            @content;
+        }
+    }
+
+    @if (length($arg)==2) {
+        @media only screen and (min-width: nth($arg, 1)) and (max-width: nth($arg, 2)) {
+            @content;
+        }
+    }
+}
